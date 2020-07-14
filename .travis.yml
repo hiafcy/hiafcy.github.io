@@ -1,0 +1,17 @@
+sudo: false
+language: node_js
+node_js:
+  - 12
+cache: npm
+branches:
+  only:
+    - writing
+install:
+  - npm install -g hexo-cli
+  - npm install
+script:
+  - hexo clean
+  - hexo generate
+
+after_success:
+  - hexo deploy
