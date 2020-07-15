@@ -14,5 +14,5 @@ deploy:
   github-token: $GIT_REPO_TOKEN
   keep-history: true
   on:
-    branch: writing
+    branch: master
   local-dir: public
