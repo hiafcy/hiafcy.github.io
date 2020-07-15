@@ -104,5 +104,5 @@ theme: Wikitten
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: https://${GIT_REPO_TOKEN}@github.com/hiafcy/hiafcy.github.io.git
+#  repo: https://${GIT_REPO_TOKEN}@github.com/hiafcy/hiafcy.github.io.git
   branch: master
