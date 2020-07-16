@@ -13,4 +13,5 @@ before_script:
 script:
   - hexo clean
   - hexo generate
-  - hexo deploy
+after_success:
+  - hexo deploy > /dev/null
