@@ -1,14 +1,23 @@
-sudo: false
-language: node_js
-node_js: stable
+language: node_js # 指定语言环境
+node_js:
+  - "6"
+dist: trusty
+sudo: required
+
 branches:
   only:
-    - master
-before_install:
-  - npm install -g hexo-cli
+  - master
+
 install:
+  - npm install -g hexo-cli
   - npm install
-before_script:
-  - sed -i "s~git@github.com:~https://${GH_TOKEN}@github.com/~" _config.yml || exit 1
 script:
-  - hexo g -d
+  - hexo clean
+  - hexo generate
+
+after_success:
+  - sed -i "s~git@github.com:~https://${GH_TOKEN}@github.com/~" _config.yml || exit 1
+  - hexo deploy > /dev/null # 通过 hexo 的 deploy 命令部署博客
+
+notifications:
+  email: true
