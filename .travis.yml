@@ -10,7 +10,6 @@ install:
   - npm install -g hexo-cli
   - npm install
 script:
-  - hexo clean
   - hexo g
 
 after_success:
