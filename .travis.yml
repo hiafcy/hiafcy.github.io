@@ -3,18 +3,12 @@ node_js: stable
 branches:
   only:
   - master
-
 install:
-  - npm install -g hexo
   - npm install -g hexo-cli
   - npm install
 script:
   - hexo clean
   - hexo g
-
 after_success:
   - sed -i "s~git@github.com:~https://${GH_TOKEN}@github.com/~" _config.yml || exit 1
   - hexo d
-
-notifications:
-  email: true
